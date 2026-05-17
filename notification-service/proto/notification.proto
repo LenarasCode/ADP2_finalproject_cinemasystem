@@ -1,0 +1,36 @@
+syntax = "proto3";
+package notification;
+option go_package = "github.com/cinema-system/notification-service/proto/notification";
+
+service NotificationService {
+  rpc SendBookingConfirmation(SendBookingConfirmationRequest) returns (SendBookingConfirmationResponse);
+  rpc GetEmailLogs(GetEmailLogsRequest) returns (GetEmailLogsResponse);
+  rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+}
+
+message SendBookingConfirmationRequest {
+  string booking_id = 1;
+  string recipient_email = 2;
+}
+
+message SendBookingConfirmationResponse {
+  bool success = 1;
+}
+
+message GetEmailLogsRequest {}
+message EmailLog {
+  string id = 1;
+  string recipient = 2;
+  string subject = 3;
+  string body = 4;
+  string sent_at = 5;
+  string status = 6;
+}
+message GetEmailLogsResponse {
+  repeated EmailLog logs = 1;
+}
+
+message HealthCheckRequest {}
+message HealthCheckResponse {
+  bool ok = 1;
+}
