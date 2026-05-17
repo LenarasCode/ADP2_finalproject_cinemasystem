@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cinema Notifications – Dark Luxury</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="luxury-container">
+    <div class="luxury-card">
+      <h1 class="luxury-title">
+        <span class="gold-text">CINEMA</span> NOTIFICATIONS
+      </h1>
+      <div class="luxury-form">
+        <div class="input-group">
+          <input type="email" id="emailInput" placeholder="Recipient Email" class="luxury-input" />
+          <input type="text" id="bookingInput" placeholder="Booking ID" class="luxury-input" />
+          <button id="sendBtn" class="luxury-button">Send Confirmation</button>
+        </div>
+        <p id="statusMsg" class="status-message"></p>
+      </div>
+    </div>
+    <div class="luxury-card">
+      <h2 class="section-title"><span class="gold-text">Recent</span> Email Logs</h2>
+      <div class="table-wrapper">
+        <table class="luxury-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Recipient</th>
+              <th>Subject</th>
+              <th>Status</th>
+              <th>Sent At</th>
+            </tr>
+          </thead>
+          <tbody id="logsBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
