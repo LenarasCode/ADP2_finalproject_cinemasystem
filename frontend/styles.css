@@ -131,3 +131,10 @@ body {
   .input-group { flex-direction: column; align-items: stretch; }
   .luxury-input { min-width: auto; }
 }
+.tabs { display: flex; gap: 1rem; margin-bottom: 2rem; }
+.tab { background: transparent; border: 1px solid #d4af37; color: #d4af37; padding: 0.5rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+.tab.active { background: #d4af37; color: #0a0c0b; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+/* дополнительные стили для Movies */
+#movies .luxury-table td:first-child { font-weight: 600; color: #e0e0d1; }

@@ -3,15 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cinema Notifications – Dark Luxury</title>
+  <title>Cinema System – Luxury UI</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="luxury-container">
-    <div class="luxury-card">
-      <h1 class="luxury-title">
-        <span class="gold-text">CINEMA</span> NOTIFICATIONS
-      </h1>
+    <!-- Navigation tabs -->
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('movies')">Movies</button>
+      <button class="tab" onclick="showTab('notifications')">Notifications</button>
+      <button class="tab" onclick="showTab('booking')">Booking</button>
+    </div>
+
+    <!-- Movies Panel -->
+    <div id="movies" class="luxury-card tab-content active">
+      <h1 class="luxury-title"><span class="gold-text">NOW</span> SHOWING</h1>
+      <div class="table-wrapper">
+        <table class="luxury-table">
+          <thead><tr><th>Title</th><th>Genre</th><th>Duration</th></tr></thead>
+          <tbody id="moviesBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Notifications Panel -->
+    <div id="notifications" class="luxury-card tab-content">
+      <h1 class="luxury-title"><span class="gold-text">CINEMA</span> NOTIFICATIONS</h1>
       <div class="luxury-form">
         <div class="input-group">
           <input type="email" id="emailInput" placeholder="Recipient Email" class="luxury-input" />
@@ -20,22 +37,26 @@
         </div>
         <p id="statusMsg" class="status-message"></p>
       </div>
-    </div>
-    <div class="luxury-card">
       <h2 class="section-title"><span class="gold-text">Recent</span> Email Logs</h2>
       <div class="table-wrapper">
         <table class="luxury-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Recipient</th>
-              <th>Subject</th>
-              <th>Status</th>
-              <th>Sent At</th>
-            </tr>
-          </thead>
+          <thead><tr><th>ID</th><th>Recipient</th><th>Subject</th><th>Status</th><th>Sent At</th></tr></thead>
           <tbody id="logsBody"></tbody>
         </table>
+      </div>
+    </div>
+
+    <!-- Booking Panel -->
+    <div id="booking" class="luxury-card tab-content">
+      <h1 class="luxury-title"><span class="gold-text">BOOK</span> SEATS</h1>
+      <div class="luxury-form">
+        <div class="input-group">
+          <input type="text" id="userId" placeholder="User ID" class="luxury-input" />
+          <input type="text" id="showtimeId" placeholder="Showtime ID" class="luxury-input" />
+          <input type="text" id="seatIds" placeholder="Seat IDs (comma separated)" class="luxury-input" />
+          <button id="bookBtn" class="luxury-button">Book Now</button>
+        </div>
+        <p id="bookStatus" class="status-message"></p>
       </div>
     </div>
   </div>
