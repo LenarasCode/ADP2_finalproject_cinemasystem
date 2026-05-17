@@ -1,0 +1,16 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: 'booking-service'
+    static_configs:
+      - targets: ['booking-service:50053']
+  - job_name: 'movie-service'
+    static_configs:
+      - targets: ['movie-service:50051']
+  - job_name: 'showtime-service'
+    static_configs:
+      - targets: ['showtime-service:50052']
+  - job_name: 'notification-service'
+    static_configs:
+      - targets: ['notification-service:50054']
