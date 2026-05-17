@@ -1,0 +1,34 @@
+syntax = "proto3";
+package gateway;
+option go_package = "github.com/cinema-system/api-gateway/proto/gateway";
+
+service CinemaGateway {
+  rpc GetShowtimeWithMovie(GetShowtimeWithMovieRequest) returns (ShowtimeWithMovie);
+  rpc SendBookingNotification(SendBookingNotificationRequest) returns (SendBookingNotificationResponse);
+  rpc GetBookingDetails(GetBookingDetailsRequest) returns (BookingDetails);
+}
+
+message GetShowtimeWithMovieRequest { string showtime_id = 1; }
+message ShowtimeWithMovie {
+  string showtime_id = 1;
+  string movie_title = 2;
+  string hall = 3;
+  string start_time = 4;
+}
+
+message SendBookingNotificationRequest {
+  string booking_id = 1;
+  string recipient_email = 2;
+}
+message SendBookingNotificationResponse { bool success = 1; }
+
+message GetBookingDetailsRequest { string booking_id = 1; }
+message BookingDetails {
+  string booking_id = 1;
+  string user_id = 2;
+  string movie_title = 3;
+  string hall = 4;
+  string start_time = 5;
+  repeated string seats = 6;
+  string status = 7;
+}
