@@ -1,0 +1,29 @@
+syntax = "proto3";
+package booking;
+option go_package = "github.com/cinema-system/booking-service/proto/booking";
+
+service BookingService {
+  rpc CreateBooking(CreateBookingRequest) returns (Booking);
+  rpc GetBooking(GetBookingRequest) returns (Booking);
+  rpc CancelBooking(CancelBookingRequest) returns (CancelBookingResponse);
+}
+
+message Booking {
+  string id = 1;
+  string user_id = 2;
+  string showtime_id = 3;
+  repeated string seat_ids = 4;
+  string status = 5; // CONFIRMED, CANCELLED
+}
+
+message CreateBookingRequest {
+  string user_id = 1;
+  string showtime_id = 2;
+  repeated string seat_ids = 3;
+}
+
+message GetBookingRequest { string id = 1; }
+
+message CancelBookingRequest { string id = 1; }
+
+message CancelBookingResponse { bool success = 1; }
